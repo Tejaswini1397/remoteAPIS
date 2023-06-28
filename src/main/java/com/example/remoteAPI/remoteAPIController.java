@@ -18,10 +18,16 @@ public class remoteAPIController {
         return responseObject;
     }
     @GetMapping("/get-details")
-    public Object getCustomeDetails(){
+    public MovieResponse getCustomeDetails(){
         String url="https://api.themoviedb.org/3/movie/157336?api_key=524427257dd5216a73500f12b0bb53e4";
        MovieResponse responseObject=restTemplate.getForObject(url,MovieResponse.class);
        return responseObject;
+    }
+    @GetMapping("/madrid")
+    public String getFootBall(){
+        String url="http://localhost:9999/footBall/madrid";
+        String responseObject=restTemplate.getForObject(url,String.class);
+        return responseObject;
     }
 
 }
